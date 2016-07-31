@@ -1,6 +1,8 @@
 # NumbersToWordsSolution
 
-This is a class library created with .NET Core 1.3 dependency compatible with any .NET Framework.
+This is a class library created with .NET Core 1.3 dependency compatible with all the modern .NET Framework releases including .NET Framework 4.x and .NET Core.
+FYI The .NET Core class libraries are superior than the old Portable Class Libraries which can be considered obsolete.
+
 It converts a decimal number (for example 123) to a string "centoventitre/00".
 The string is commonly used on cheques for financial projects.
 
@@ -19,5 +21,6 @@ string Convert(decimal number, System.Globalization.NumberFormatInfo numberForma
 The implementation of INumberToWords in Italian language
 This is called from the DecimalExtensions class
 
+### Notes
 In order to use this class library you should create the nuget package first.
 Please create an issue if you want me to publish the packet.
