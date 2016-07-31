@@ -38,13 +38,10 @@ namespace NumbersToWordsSolution
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public string Convert(decimal number)
+        public string Convert(decimal number, System.Globalization.NumberFormatInfo numberFormatInfo)
         {
-            // Getting the thread culture info
-            System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.CurrentCulture;
-            System.Globalization.NumberFormatInfo nfi = ci.NumberFormat;
             // how many decimals are expected after the comma?
-            int fractnum = nfi.CurrencyDecimalDigits;
+            int fractnum = numberFormatInfo.CurrencyDecimalDigits;
             // The integer parts
             int Integral = (int)decimal.Truncate(number);
             // the number of decimals after the comma.

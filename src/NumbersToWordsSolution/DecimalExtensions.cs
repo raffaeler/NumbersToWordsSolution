@@ -26,7 +26,8 @@ namespace NumbersToWordsSolution
                     throw new NotImplementedException(string.Format("No converter defined for language: {0} / {1}", cultureInfo.TwoLetterISOLanguageName, cultureInfo.EnglishName));
             }
 
-            return converter.Convert(number);
+            System.Globalization.NumberFormatInfo nfi = cultureInfo.NumberFormat;
+            return converter.Convert(number, nfi);
         }
     }
 }
