@@ -8,13 +8,13 @@ namespace NumbersToWordsSolution
 {
     public static class DecimalExtensions
     {
-        public static string ConvertToWords(this decimal number)
+        public static string AsString(this decimal number, bool excludeZeroDecimals = false)
         {
             System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.CurrentCulture;
-            return ConvertToWords(number, ci);
+            return AsString(number, excludeZeroDecimals, ci);
         }
 
-        public static string ConvertToWords(this decimal number, CultureInfo cultureInfo)
+        public static string AsString(this decimal number, bool excludeZeroDecimals, CultureInfo cultureInfo)
         {
             INumbersToWords converter;
             switch (cultureInfo.TwoLetterISOLanguageName)
@@ -27,7 +27,7 @@ namespace NumbersToWordsSolution
             }
 
             System.Globalization.NumberFormatInfo nfi = cultureInfo.NumberFormat;
-            return converter.Convert(number, nfi);
+            return converter.Convert(number, excludeZeroDecimals, nfi);
         }
     }
 }

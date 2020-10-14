@@ -8,6 +8,6 @@ namespace NumbersToWordsSolution
 {
     public interface INumbersToWords
     {
-        string Convert(decimal number, NumberFormatInfo nfi);
+        string Convert(decimal number, bool excludeZeroDecimals, NumberFormatInfo nfi);
     }
 }

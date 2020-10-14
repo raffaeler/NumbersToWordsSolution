@@ -38,7 +38,7 @@ namespace NumbersToWordsSolution
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public string Convert(decimal number, System.Globalization.NumberFormatInfo numberFormatInfo)
+        public string Convert(decimal number, bool excludeZeroDecimals, System.Globalization.NumberFormatInfo numberFormatInfo)
         {
             // how many decimals are expected after the comma?
             int fractnum = numberFormatInfo.CurrencyDecimalDigits;
@@ -47,6 +47,9 @@ namespace NumbersToWordsSolution
             // the number of decimals after the comma.
             int fractional = (int)decimal.Truncate((number - Integral) * (decimal)System.Math.Pow(10, fractnum));
             string fraction = fractional == 0 ? "00" : fractional.ToString();
+
+            if (excludeZeroDecimals)
+                return ToString(Integral);
 
             return ToString(Integral) + "/" + fraction;
         }
